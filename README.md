@@ -86,18 +86,19 @@ Since different VideoLLMs require different versions of packages, such as transf
 
 ### Recommended Environment Mapping
 
-llava
-Reference: [LLaVA-NeXT](https://github.com/LLaVA-VL/LLaVA-NeXT)
+<b><code>llava</code></b>  
+Reference: [LLaVA-NeXT](https://github.com/LLaVA-VL/LLaVA-NeXT)  
 Models: LLaVA-Video-7B-Qwen2, LLaVA-Video-7B-Qwen2-Video-Only, LLaVA-NeXT-Video-7B, LLaVA-NeXT-Video-7B-DPO, LLaVA-NeXT-Video-32B-Qwen
 
-sg4v
-Reference: [ShareGPT4Video](https://github.com/ShareGPT4Omni/ShareGPT4Video)
-Models: VideoLLaMA2, ShareGPT4Video
+<b><code>sg4v</code></b>  
+Reference: [ShareGPT4Video](https://github.com/ShareGPT4Omni/ShareGPT4Video)  
+Models: VideoLLaMA2, ShareGPT4Video  
 Requirement: transformers>=4.45.0
 
-multimodal
-Reference: [InternVL3.5-8B](https://huggingface.co/OpenGVLab/InternVL3_5-8B)
-Models: InternVL3.5-8B, Qwen3-VL-8B-Instruct, Molmo2-8B
+
+<b><code>multimodal</code></b>  
+Reference: [InternVL3.5-8B](https://huggingface.co/OpenGVLab/InternVL3_5-8B)  
+Models: InternVL3.5-8B, Qwen3-VL-8B-Instruct, Molmo2-8B  
 Requirement: transformers>=4.55.4
 
 ### Template
