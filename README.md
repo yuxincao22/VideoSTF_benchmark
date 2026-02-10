@@ -1,3 +1,7 @@
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 # 🎥 VideoSTF: An Evaluation Benchmark for Stress-Testing Output Repetition in Video Large Language Models
 
 VideoSTF is the first benchmark for systematically measuring and stress-testing output repetition in Video Large Language Models (VideoLLMs).
