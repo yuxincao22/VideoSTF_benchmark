@@ -8,7 +8,7 @@ VideoSTF evaluates repetition using three complementary n-gram-based metrics (Re
 
 ## 📏 Metrics
 
-> VideoSTF reports three repetition metrics, computed over a set of $K$ model outputs.
+VideoSTF reports three repetition metrics, computed over a set of $K$ model outputs.
 
 ![Metrics](images/metrics.png)
 
@@ -177,6 +177,12 @@ python -m runners.batch_attack \
 - Outputs are saved as JSON files and CSV files in `runners/attack_results/attack_7bqwen2_16/`.
 - JSON files contain model generations.
 - CSV files record whether the attack succeeds under the temporal stressors and the number of queries required.
+
+## 📜 License
+
+This project is distributed under the MIT License. See `LICENSE.md` for details.
+
+**Disclaimer:** This tool is intended solely for educational and authorized security testing. The authors do not condone any unlawful or unauthorized use. Users are solely responsible for ensuring compliance with applicable laws and obtaining any required permissions.
 
 ## 🤝 Contributions
 
