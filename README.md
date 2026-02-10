@@ -1,7 +1,3 @@
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
 # 🎥 VideoSTF: An Evaluation Benchmark for Stress-Testing Output Repetition in Video Large Language Models
 
 VideoSTF is the first benchmark for systematically measuring and stress-testing output repetition in Video Large Language Models (VideoLLMs).
@@ -12,41 +8,18 @@ VideoSTF evaluates repetition using three complementary n-gram-based metrics (Re
 
 ## 📏 Metrics
 
-> VideoSTF reports three repetition metrics, computed over a set of $K$ model outputs $\{\mathbf{Y}_k\}_{k=1}^{K}$.
+> VideoSTF reports three repetition metrics, computed over a set of $K$ model outputs.
 
-<!-- ![Metrics](images/metrics.png) -->
+![Metrics](images/metrics.png)
 
-<details>
-<summary><b>Repetition Rate (RR)</b></summary>
-
-$$
-\mathrm{RR} = \frac{1}{K} \sum_{k=1}^{K} \mathbb{I} \big( \mathcal{R}(\mathbf{Y}_k) > 1 \big)
-$$
-
+### Repetition Rate (RR)
 RR captures whether repetition occurs in an output. An output is marked as repetitive if it contains at least 1 repeated $n$-gram. Higher RR indicates repetition appears more frequently across outputs.
-</details>
 
-<details>
-<summary><b>Repetition Intensity (RI)</b></summary>
-
-$$
-\mathrm{RI} = \frac{1}{K} \sum_{k=1}^{K} \mathrm{Rep}\text{-}n(\mathbf{Y}_k)
-$$
-
+### Repetition Intensity (RI)
 RI quantifies the extent of duplicated patterns. It uses the standard Rep-$n$ to measure the proportion of duplicated $n$-grams in each output. Higher RI indicates stronger repetitive patterns.
 
-</details>
-
-<details>
-<summary><b>Information Entropy (IE)</b></summary>
-
-$$
-\mathrm{IE} = \frac{1}{K} \sum_{k=1}^{K} H_\mathrm{norm}(\mathbf{Y}_k)
-$$
-
+### Information Entropy (IE)
 IE measures repetition through lexical diversity by capturing the diversity of $n$-grams. Lower entropy indicates lower lexical diversity and more severe repetition.
-
-</details>
 
 ## 🎞️ Video Testbed
 
