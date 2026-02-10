@@ -118,10 +118,10 @@ VideoSTF includes three testing suites. All suites share a common runner interfa
 | --- | --- | --- |
 | `--adapter` | `str` | Model adapter identifier (see supported adapters below). |
 | `--input_folder` | `str` | Path to the input videos directory. |
-| `--output_folder` | `str` | Output folder name. Results will be saved in `runners/<test_mode>_results/<output_folder>/`. |
+| `--output_folder` | `str` | Output folder name. |
 | `--max_frames_num` | `int` | Number of frames sampled per video. |
 | `--temperature` | `float` | Decoding temperature. Set to `0.0` for deterministic generation. |
-| `--gpu` | `str` | GPU index to run inference on, e.g., `0`. |
+| `--gpu` | `str` | GPU index. |
 | `--cache_dir` | `str` | Cache directory to save model weights and processor. |
 
 **Supported adapters:** `llava_video_7b_qwen2`, `llava_video_7b_qwen2_video_only`, `llava_next_video_7b`, `llava_next_video_7b_dpo`, `llava_next_video_32b_qwen`, `videollama2`, `sharegpt4video`, `internvl35_8b`, `qwen3vl_8b`, `molmo2_8b`.
