@@ -1,7 +1,12 @@
 from decord import VideoReader, cpu
 import numpy as np
 from PIL import Image
+import torch
+import torchvision.transforms as T
+from torchvision.transforms.functional import InterpolationMode
 
+IMAGENET_MEAN = (0.485, 0.456, 0.406)
+IMAGENET_STD = (0.229, 0.224, 0.225)
 
 ## llava & qwen3vl & molmo2
 def load_video(video_path, max_frames_num=32, fps=1, force_sample=False, return_idx=False):
@@ -88,14 +93,6 @@ def load_video_frames_sg4v(video_path, num_segments):
     return frames
 
 ## internvl3.5
-import torch
-import torchvision.transforms as T
-from torchvision.transforms.functional import InterpolationMode
-
-IMAGENET_MEAN = (0.485, 0.456, 0.406)
-IMAGENET_STD = (0.229, 0.224, 0.225)
-
-
 def build_transform(input_size):
     MEAN, STD = IMAGENET_MEAN, IMAGENET_STD
     transform = T.Compose([
@@ -205,24 +202,6 @@ def preprocess_video_internvl3_5(video, input_size=448, max_num=1):
 def apply_transformation_to_frame_idx(frame_idx, transformation, setting):
     T = len(frame_idx)
 
-    if transformation.name == "delete_one_frame":
-        drop_i = int(setting)
-        new_idx = [frame_idx[j] for j in range(T) if j != drop_i]
-        return new_idx
-
-    if transformation.name == "delete_two_frames":
-        i = int(setting[0])
-        j = int(setting[1])
-        new_idx = [frame_idx[k] for k in range(T) if k not in [i, j]]
-        return new_idx
-
-    if transformation.name == "reverse":
-        return list(reversed(frame_idx))
-
-    if transformation.name == "random_shuffle":
-        perm = list(setting)
-        return [frame_idx[k] for k in perm]
-
     if transformation.name == "add_one_frame":
         src_idx = int(setting["add_frame_id"])
         insert_pos = int(setting["insert_position"])
@@ -257,6 +236,17 @@ def apply_transformation_to_frame_idx(frame_idx, transformation, setting):
                 orig_ptr += 1
         return new_idx
 
+    if transformation.name == "delete_one_frame":
+        drop_i = int(setting)
+        new_idx = [frame_idx[j] for j in range(T) if j != drop_i]
+        return new_idx
+
+    if transformation.name == "delete_two_frames":
+        i = int(setting[0])
+        j = int(setting[1])
+        new_idx = [frame_idx[k] for k in range(T) if k not in [i, j]]
+        return new_idx
+
     if transformation.name == "replace_one_frame":
         src_idx = int(setting["source_frame_id"])
         tgt_idx = int(setting["target_frame_id"])
@@ -273,5 +263,12 @@ def apply_transformation_to_frame_idx(frame_idx, transformation, setting):
         new_idx[tgt_i] = frame_idx[src_i]
         new_idx[tgt_j] = frame_idx[src_j]
         return new_idx
+
+    if transformation.name == "reverse":
+        return list(reversed(frame_idx))
+
+    if transformation.name == "random_shuffle":
+        perm = list(setting)
+        return [frame_idx[k] for k in perm]
 
     raise ValueError("Unknown transformation name: %s" % transformation.name)

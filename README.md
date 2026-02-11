@@ -112,9 +112,9 @@ VideoSTF tests each VideoLLM under varying numbers of sampled frames, treating t
 
 ~~~bash
 python -m runners.batch_infer \
-  --adapter llava_video_7b_qwen2 \
+  --adapter llava_video_7b_qwen2_video_only \
   --input_folder your/video/path \
-  --output_folder infer_7bqwen2_16 \
+  --output_folder infer_7bqwen2videoonly_16 \
   --max_frames_num 16 \
   --temperature 0.0 \
   --gpu 0 \
@@ -124,7 +124,7 @@ python -m runners.batch_infer \
 ---
 
 #### 📦 Outputs
-- Outputs are saved as JSON files in `runners/infer_results/infer_7bqwen2_16/`.
+- Outputs are saved as JSON files in `runners/infer_results/infer_7bqwen2videoonly_16/`.
 - JSON files record the model output and the results of the three metrics.
 
 
@@ -137,9 +137,9 @@ VideoSTF tests VideoLLMs under temporal stressors by applying controlled tempora
 
 ~~~bash
 python -m runners.batch_test \
-  --adapter llava_video_7b_qwen2 \
+  --adapter llava_video_7b_qwen2_video_only \
   --input_folder your/video/path \
-  --output_folder test_7bqwen2_16 \
+  --output_folder test_7bqwen2videoonly_16 \
   --max_frames_num 16 \
   --temperature 0.0 \
   --gpu 0 \
@@ -149,7 +149,7 @@ python -m runners.batch_test \
 ---
 
 #### 📦 Outputs
-- Outputs are saved as JSON files and CSV files in `runners/test_results/test_7bqwen2_16/`.
+- Outputs are saved as JSON files and CSV files in `runners/test_results/test_7bqwen2videoonly_16/`.
 - JSON files record the model output.
 - CSV files record the results of the three metrics under different temporal stressors.
 
@@ -162,9 +162,9 @@ VideoSTF evaluates whether temporal stressors can be exploited to induce repetit
 
 ~~~bash
 python -m runners.batch_attack \
-  --adapter llava_video_7b_qwen2 \
+  --adapter llava_video_7b_qwen2_video_only \
   --input_folder your/video/path \
-  --output_folder attack_7bqwen2_16 \
+  --output_folder attack_7bqwen2videoonly_16 \
   --max_frames_num 16 \
   --temperature 0.0 \
   --gpu 0 \
@@ -174,7 +174,7 @@ python -m runners.batch_attack \
 ---
 
 #### 📦 Outputs
-- Outputs are saved as JSON files and CSV files in `runners/attack_results/attack_7bqwen2_16/`.
+- Outputs are saved as JSON files and CSV files in `runners/attack_results/attack_7bqwen2videoonly_16/`.
 - JSON files contain model generations.
 - CSV files record whether the attack succeeds under the temporal stressors and the number of queries required.
 

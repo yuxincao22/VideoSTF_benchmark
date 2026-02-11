@@ -1,11 +1,12 @@
 import argparse
 import os
 
+from models import register_adapters
 from utils.cal_metrics import cal, cal_batch
 from utils.env import set_env_sane_defaults, pin_gpu
 from utils.io import safe_makedirs, list_videos, write_json
 from utils.registry import REGISTRY
-from models import register_adapters
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Batch video inference")

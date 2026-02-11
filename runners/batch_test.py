@@ -1,12 +1,12 @@
 import argparse
 import os
 
-from utils.env import set_env_sane_defaults, pin_gpu
-from utils.io import safe_makedirs, list_videos
-from utils.registry import REGISTRY
 from models import register_adapters
 from stressors.temporal import (AddOneFrame, AddTwoFrames, DeleteOneFrame, DeleteTwoFrames,
                                 ReplaceOneFrame, ReplaceTwoFrames, ReverseVideo, RandomShuffle)
+from utils.env import set_env_sane_defaults, pin_gpu
+from utils.io import safe_makedirs, list_videos
+from utils.registry import REGISTRY
 
 
 def parse_args():
